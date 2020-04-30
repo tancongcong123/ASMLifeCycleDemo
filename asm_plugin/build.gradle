@@ -1,0 +1,33 @@
+apply plugin: 'groovy'
+apply plugin: 'maven'
+
+repositories {
+    mavenLocal()
+    jcenter()
+}
+
+dependencies {
+    compile gradleApi() // gradle sdk
+    compile localGroovy() // groovy sdk
+
+    compile 'com.android.tools.build:gradle:3.4.1'
+
+    //ASM相关依赖
+    implementation 'org.ow2.asm:asm:8.0.1'
+    implementation 'org.ow2.asm:asm-commons:8.0.1'
+}
+
+//publish to local directory
+group "com.apricity.plugin"
+version "1.0.0"
+
+uploadArchives{ //当前项目可以发布到本地文件夹中
+    repositories {
+        mavenDeployer {
+            repository(url: uri('../asm_repo')) //定义本地maven仓库的地址
+        }
+    }
+}
+
+sourceCompatibility = "8"
+targetCompatibility = "8"

@@ -7,6 +7,13 @@
     <Button
         android:id="@+id/btn_close"
         android:text="close page"
+        android:contentDescription="button close"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+    <Button
+        android:id="@+id/btn_other"
+        android:text="other"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content" />
 

@@ -1,19 +1,6 @@
 apply plugin: 'com.android.application'
 apply plugin: 'com.apricity.LifeCyclePlugin'
 
-buildscript {
-    repositories {
-        google()
-        jcenter()
-        // 自定义maven地址
-        maven { url "../asm_repo"}
-    }
-    dependencies {
-        // 自定义插件 group+module+version
-        classpath 'com.apricity.plugin:asm_plugin:1.0.0'
-    }
-}
-
 android {
     compileSdkVersion 29
     buildToolsVersion "29.0.3"

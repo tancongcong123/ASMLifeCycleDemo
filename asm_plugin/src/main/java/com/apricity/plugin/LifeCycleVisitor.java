@@ -24,6 +24,10 @@ public class LifeCycleVisitor extends ClassVisitor implements Opcodes{
     public MethodVisitor visitMethod(int access, String name, String descriptor, String signature, String[] exceptions) {
         System.out.println("LifeCycleVisitor MethodVisitor---->name = [" + name + "], superName = [" + superName + "]");
         MethodVisitor methodVisitor = cv.visitMethod(access, name, descriptor, signature, exceptions);
+        if ("onClick".equals(name)){
+            System.out.println("---->onClick");
+            return new LifeCycleOnClickVisitor(methodVisitor);
+        }
         if ("androidx/appcompat/app/AppCompatActivity".equals(superName)){
             if ("onCreate".equals(name)){
                 System.out.println("---->onCreate");

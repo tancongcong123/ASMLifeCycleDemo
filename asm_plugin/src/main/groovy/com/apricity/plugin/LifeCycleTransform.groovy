@@ -10,7 +10,6 @@ import com.android.build.api.transform.TransformInvocation
 import com.android.build.api.transform.TransformOutputProvider
 import com.android.build.gradle.internal.pipeline.TransformManager
 import com.android.utils.FileUtils
-import groovy.io.FileType
 import org.apache.commons.codec.digest.DigestUtils
 import org.apache.commons.compress.utils.IOUtils
 import org.objectweb.asm.ClassReader
@@ -23,11 +22,34 @@ import java.util.jar.JarFile
 import java.util.jar.JarOutputStream
 import java.util.zip.ZipEntry
 
-public class LifeCycleTransform extends Transform {
+class LifeCycleTransform extends Transform {
+
+    private static final String VERSION = "v1.0.0"
+
+    /**
+     * 打印提示信息
+     */
+    static void printCopyRight() {
+        println()
+        println '#######################################################################'
+        println '##########                                                    '
+        println '##########         欢迎使用 '+GlobalConfig.getParams().name+'® (' + VERSION + ')无埋点编译插件'
+        println '##########                                                    '
+        println '#######################################################################'
+        println '##########                                                    '
+        println '##########                      插件配置参数                    '
+        println '##########                                                    '
+        println '##########                 -isDebug:' + GlobalConfig.getParams().isDebug
+        println '##########                 -isOpenLogTrack:' + GlobalConfig.getParams().isOpenTrack
+        println '##########                                                    '
+        println '##########                                                    '
+        println '#######################################################################'
+        println()
+    }
 
     @Override
     void transform(TransformInvocation transformInvocation) throws TransformException, InterruptedException, IOException {
-        println "---------LifeCyclePlugin start-----------"
+        printCopyRight()
         Collection<TransformInput> inputCollections = transformInvocation.inputs
         TransformOutputProvider outputProvider = transformInvocation.outputProvider
         // 删除之前的输出

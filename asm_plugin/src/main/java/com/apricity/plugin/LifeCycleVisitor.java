@@ -1,5 +1,6 @@
 package com.apricity.plugin;
 
+import org.objectweb.asm.AnnotationVisitor;
 import org.objectweb.asm.ClassVisitor;
 import org.objectweb.asm.MethodVisitor;
 import org.objectweb.asm.Opcodes;
@@ -44,6 +45,11 @@ public class LifeCycleVisitor extends ClassVisitor implements Opcodes{
             }
         }
         return methodVisitor;
+    }
+
+    @Override
+    public AnnotationVisitor visitAnnotation(String descriptor, boolean visible) {
+        return super.visitAnnotation(descriptor, visible);
     }
 
     @Override

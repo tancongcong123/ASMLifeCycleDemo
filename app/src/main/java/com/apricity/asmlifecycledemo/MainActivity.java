@@ -3,19 +3,18 @@ package com.apricity.asmlifecycledemo;
 import android.content.Intent;
 import android.os.Bundle;
 
+import com.apricity.asmlifecycledemo.base.BaseActivity;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.snackbar.Snackbar;
 import com.google.android.material.tabs.TabLayout;
 
 import androidx.viewpager.widget.ViewPager;
-import androidx.appcompat.app.AppCompatActivity;
 
-import android.util.Log;
 import android.view.View;
 
 import com.apricity.asmlifecycledemo.ui.main.SectionsPagerAdapter;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends BaseActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,20 +35,5 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(new Intent(MainActivity.this, SecondActivity.class));
             }
         });
-    }
-
-    @Override
-    protected void onResume() {
-        super.onResume();
-    }
-
-    @Override
-    protected void onPause() {
-        super.onPause();
-    }
-
-    @Override
-    protected void onDestroy() {
-        super.onDestroy();
     }
 }

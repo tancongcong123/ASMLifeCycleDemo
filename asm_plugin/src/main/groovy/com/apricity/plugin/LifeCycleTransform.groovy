@@ -33,7 +33,7 @@ class LifeCycleTransform extends Transform {
         println()
         println '#######################################################################'
         println '##########                                                    '
-        println '##########         欢迎使用 '+GlobalConfig.getParams().name+'® (' + VERSION + ')无埋点编译插件'
+        println '##########         欢迎使用 '+GlobalConfig.getParams().name+'® (' + VERSION + ')自动埋点编译插件'
         println '##########                                                    '
         println '#######################################################################'
         println '##########                                                    '

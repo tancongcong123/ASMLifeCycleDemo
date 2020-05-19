@@ -5,9 +5,10 @@ import android.view.View;
 import android.widget.Toast;
 
 import androidx.annotation.Nullable;
-import androidx.appcompat.app.AppCompatActivity;
 
-public class SecondActivity extends AppCompatActivity {
+import com.apricity.asmlifecycledemo.base.BaseActivity;
+
+public class SecondActivity extends BaseActivity {
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -25,20 +26,5 @@ public class SecondActivity extends AppCompatActivity {
                 Toast.makeText(SecondActivity.this, "btn_other", Toast.LENGTH_SHORT).show();
             }
         });
-    }
-
-    @Override
-    protected void onResume() {
-        super.onResume();
-    }
-
-    @Override
-    protected void onPause() {
-        super.onPause();
-    }
-
-    @Override
-    protected void onDestroy() {
-        super.onDestroy();
     }
 }
